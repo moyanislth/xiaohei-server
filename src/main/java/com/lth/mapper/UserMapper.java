@@ -1,6 +1,7 @@
 package com.lth.mapper;
 
 import com.lth.pojo.User;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -23,4 +24,12 @@ public interface UserMapper {
 
     @Select("SELECT * FROM user WHERE email = #{email}")
     User findUserByEmail(String email);
+
+    @Select("SELECT * FROM user WHERE id = #{userId}")
+    User findUserById(Integer userId);
+
+    void updateUser(User user);
+
+    @Delete("DELETE FROM user WHERE id = #{userId}")
+    void deleteUser(Integer userId);
 }

@@ -1,7 +1,9 @@
 package com.lth.service;
 
+import com.lth.pojo.DTO.UserDTO;
 import com.lth.pojo.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,4 +17,11 @@ public interface UserService {
     User findUserByUsername(String username);
     //    通过邮箱查找用户
     User findUserByEmail(String email);
+    //    通过id查找用户
+    User findUserById(Integer userId);
+    //    更新用户信息
+    @Transactional
+    User updateUser(Integer userId, UserDTO userDTO);
+
+    void deleteUser(Integer userId);
 }
